@@ -22,9 +22,7 @@ const Layout = () => {
             </li>
           </ul>
         </nav>
-      </div>
-      
-
+      </div>    
 
 
       <Outlet />
