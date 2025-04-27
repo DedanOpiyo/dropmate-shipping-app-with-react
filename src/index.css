@@ -1,0 +1,23 @@
+
+
+/* button {
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+} */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* custom styling to make placeholder dim */
+@layer utilities {
+  .dim-placeholder::placeholder {
+    @apply text-gray-400 opacity-100;
+  }
+}
