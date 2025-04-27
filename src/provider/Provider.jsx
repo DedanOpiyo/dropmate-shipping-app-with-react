@@ -71,13 +71,6 @@ function Provider({children}) { // the provider component takes children prop
         fetchServices()
     }, [])
 
-    // useEffect(() => {
-    //     fetch("https://dropmate-shipping-app-with-react.onrender.com/dropOrder")
-    //         .then((r) => r.json())
-    //         .then((newItem) => {console.log('DROP ORDERS:', newItem)
-    //             setProviderValue(newItem)
-    //         });
-    // }, [])
     // Update an existing order (PUT or PATCH)
     const updateOrder = async (id, updatedData) => {
         try {

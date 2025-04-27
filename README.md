@@ -71,6 +71,10 @@ my-app/
 
 ```
 
+Backend/base route url(deployed through [render.com](https://dashboard.render.com/)): https://dropmate-shipping-app-with-react.onrender.com
+
+Frontend view/URL(deployed in vercel): https://dropmate-shipping-app-with-react.vercel.app/
+
 ## Data Schema
 
 db.json file:
