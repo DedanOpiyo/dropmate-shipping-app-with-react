@@ -27,7 +27,7 @@ function Provider({children}) { // the provider component takes children prop
     // Fetch drop orders
     const fetchDropOrders = async () => {
         try{
-            const res = await fetch("http://localhost:5000/dropOrder")
+            const res = await fetch("https://dropmate-shipping-app-with-react.onrender.com/dropOrder")
             const newItem = await res.json()
                 setProviderValue(newItem)
         } catch(error) {
@@ -40,7 +40,7 @@ function Provider({children}) { // the provider component takes children prop
     // Fetch services
     const fetchServices = async () => {
         try{
-            const res = await fetch("http://localhost:5000/services")
+            const res = await fetch("https://dropmate-shipping-app-with-react.onrender.com/services")
             const newItem = await res.json()
             setServices(newItem)
         } catch(error) {
@@ -54,7 +54,7 @@ function Provider({children}) { // the provider component takes children prop
     const handleDelete = async (id) => {
         console.log('DELETING SERVICE ID:===PROVIDER', id)
         try {
-            const res = await fetch(`http://localhost:5000/services/${id}`, {
+            const res = await fetch(`https://dropmate-shipping-app-with-react.onrender.com/services/${id}`, {
             method: 'DELETE',
             });
             if (res.ok) {
@@ -72,7 +72,7 @@ function Provider({children}) { // the provider component takes children prop
     }, [])
 
     // useEffect(() => {
-    //     fetch("http://localhost:5000/dropOrder")
+    //     fetch("https://dropmate-shipping-app-with-react.onrender.com/dropOrder")
     //         .then((r) => r.json())
     //         .then((newItem) => {console.log('DROP ORDERS:', newItem)
     //             setProviderValue(newItem)
@@ -81,7 +81,7 @@ function Provider({children}) { // the provider component takes children prop
     // Update an existing order (PUT or PATCH)
     const updateOrder = async (id, updatedData) => {
         try {
-        const res = await fetch(`http://localhost:5000/dropOrder/${id}`, {
+        const res = await fetch(`https://dropmate-shipping-app-with-react.onrender.com/dropOrder/${id}`, {
             method: 'PATCH',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(updatedData),
@@ -99,7 +99,7 @@ function Provider({children}) { // the provider component takes children prop
     const deleteOrder = async (id) => {
         console.log('DELETING ORDER ID:===PROVIDER', id)
         try {
-          const res = await fetch(`http://localhost:5000/dropOrder/${id}`, {
+          const res = await fetch(`https://dropmate-shipping-app-with-react.onrender.com/dropOrder/${id}`, {
             method: 'DELETE',
           });
           if (res.ok) {

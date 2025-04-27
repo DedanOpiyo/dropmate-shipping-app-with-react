@@ -30,7 +30,7 @@ export default function Services() {
     console.log('formData==:', formData)
 
     // Persist to the Database
-    fetch("http://localhost:5000/services", {
+    fetch("https://dropmate-shipping-app-with-react.onrender.com/services", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

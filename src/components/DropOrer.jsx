@@ -63,7 +63,7 @@ export default function DropOrer() {
       console.log('FINALIZED FORM DATA:', finalizeFormData)
 
       // Persist to the Database
-      fetch("http://localhost:5000/dropOrder", {
+      fetch("https://dropmate-shipping-app-with-react.onrender.com/dropOrder", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
