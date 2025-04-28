@@ -1,6 +1,8 @@
 import React from 'react'
 import { useState } from 'react';
 import {useTheContext} from '../provider/Provider';
+import Swal from "sweetalert2";
+import "animate.css";
 
 export default function Services() {
   const {fetchServices, services, handleDelete} = useTheContext()
@@ -39,7 +41,24 @@ export default function Services() {
     })
       .then((r) => r.json())
       .then((newItem) => {console.log('newItem:', newItem)
-        alert('Service registered succesfully')
+        // alert('Service registered succesfully')
+        Swal.fire({
+          title: "Service registered succesfully",
+          showClass: {
+            popup: `
+              animate__animated
+              animate__fadeInUp
+              animate__faster
+            `
+          },
+          hideClass: {
+            popup: `
+              animate__animated
+              animate__fadeOutDown
+              animate__faster
+            `
+          }
+        });
         fetchServices() // Call the function from the provider to trigger re-fetch.
         setFormData(initialFormData) // Clear input fields
       });

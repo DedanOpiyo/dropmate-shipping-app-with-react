@@ -1,5 +1,16 @@
 {
-  "users": [],
+  "users": [
+    {
+      "name": "Dedan",
+      "userName": "dens",
+      "email": "dedanden",
+      "password": "12345",
+      "profileType": "customer",
+      "licence": "12345672",
+      "confirmPassword": "12345",
+      "id": 1
+    }
+  ],
   "dropOrder": [
     {
       "name": "Dedan",

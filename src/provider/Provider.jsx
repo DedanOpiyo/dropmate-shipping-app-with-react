@@ -7,6 +7,7 @@ function Provider({children}) { // the provider component takes children prop
 
     const [providerValue, setProviderValue] = useState([]);
     const [services, setServices] = useState([]);
+    const [users, setUsers] = useState([]);
     const [loading, setIsloading] = useState(true); // State to manage loading.
     // console.log('WILL NEW ORDERS BE FETCHED?', loading)
     const [darkMode, setDarkMode] = useState(() => {
@@ -23,6 +24,19 @@ function Provider({children}) { // the provider component takes children prop
           localStorage.setItem("theme", "light");
         }
     }, [darkMode]);
+
+    // Fetch users
+    const fetchUsers = async () => {
+        try{
+            const res = await fetch("http://localhost:5000/users")
+            const fetchedusers = await res.json()
+            setUsers(fetchedusers)
+        } catch(error) {
+            console.error('Error fetching orders:', err);
+        } finally{
+            // setIsloading(false)
+        }
+    }
 
     // Fetch drop orders
     const fetchDropOrders = async () => {
@@ -69,6 +83,7 @@ function Provider({children}) { // the provider component takes children prop
     useEffect(() => {
         fetchDropOrders()
         fetchServices()
+        fetchUsers()
     }, [])
 
     // Update an existing order (PUT or PATCH)
@@ -106,7 +121,7 @@ function Provider({children}) { // the provider component takes children prop
 
   return (
     // Create the 'provider/providing' component using the Provider property
-    <DropDetails.Provider value={{providerValue, fetchDropOrders, updateOrder, deleteOrder, services, fetchServices, handleDelete, darkMode, toggleDark: () => setDarkMode(prev => !prev)}}>
+    <DropDetails.Provider value={{providerValue, fetchDropOrders, updateOrder, deleteOrder, services, fetchServices, handleDelete, users, darkMode, toggleDark: () => setDarkMode(prev => !prev)}}>
         {children}
     </DropDetails.Provider>
   )

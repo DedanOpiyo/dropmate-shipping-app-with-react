@@ -1,8 +1,11 @@
 import { useState } from 'react';
 import { Cog6ToothIcon, XMarkIcon } from '@heroicons/react/24/outline';
 import {useTheContext} from '../provider/Provider';
+import { GrLogout } from "react-icons/gr";
+import { useNavigate } from 'react-router-dom';
 
 export default function SettingsPanel({handleSortOrders}) {
+  const navigate = useNavigate()
   const [open, setOpen] = useState(false);
   const {providerValue, darkMode, toggleDark} = useTheContext()
 
@@ -40,6 +43,9 @@ export default function SettingsPanel({handleSortOrders}) {
           <button onClick={() => handleSortOrders('general')} className="px-4 py-2 w-fit bg-gray-200 dark:bg-gray-700 rounded">All Orders</button>
           <button onClick={() => handleSortOrders('complete')} className="px-4 py-2 bg-gray-200 dark:bg-gray-700 rounded">Completed Orders</button>
           </div>
+
+          <p className="mt-4 cursor-pointer mb-2">Logout</p>
+          <button onClick={() => navigate('/signup')} className="px-4 py-2 w-fit bg-gray-200 dark:bg-gray-700 rounded"><GrLogout />Logout</button>
         </div>
       </div>
 

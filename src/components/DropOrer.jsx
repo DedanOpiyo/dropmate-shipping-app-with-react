@@ -3,9 +3,11 @@ import { HiOutlineChevronDoubleDown } from "react-icons/hi2"
 import { format, addDays } from 'date-fns';
 import { useTheContext } from '../provider/Provider';
 import calculatePrice from '../utility/calculatePrice';
+import { useNavigate } from 'react-router-dom';
 
 export default function DropOrer() {
     const {fetchDropOrders, services} = useTheContext() // Call the useTheContext func from the provider. It uses useContext Hook, and returns provider values.
+    const navigate = useNavigate()
     const [price, setPrice] = useState();
     const [time, setTime] = useState();
     const initialFormData = {
@@ -75,6 +77,7 @@ export default function DropOrer() {
           alert('Order saved succesfully')
           fetchDropOrders() // Call the function from the provider to trigger re-fetch.
           setFormData(initialFormData) // Clear input fields
+          navigate('/signup')
         });
     }
     console.log('formData:', formData)
